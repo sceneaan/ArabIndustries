@@ -40,9 +40,9 @@ const PieChartComponent = () => {
   };
 
   return (
-    <div className="bg-white h-60 p-4 rounded shadow">
-      <ResponsiveContainer width="100%">
-        <PieChart width={400} height={400}>
+    <div className="bg-white p-4 text-center">
+      <ResponsiveContainer width="100%" height={190}>
+        <PieChart>
           <Pie
             data={pieData}
             cx="50%"
@@ -61,18 +61,18 @@ const PieChartComponent = () => {
             ))}
           </Pie>
         </PieChart>
-        <div className="mt-4">
+      </ResponsiveContainer>
+      <div className="mt-4 max-w-full bg-white p-4">
         {pieData.map((entry, index) => (
           <div key={`legend-${index}`} className="flex items-center mb-2">
             <div
               className="w-4 h-4 mr-2 rounded-full"
-              style={{ backgroundColor: entry.color }}
+              style={{ backgroundColor: COLORS[index % COLORS.length] }}
             />
             <span>{entry.name}</span>
           </div>
         ))}
       </div>
-      </ResponsiveContainer>
     </div>
   );
 };
