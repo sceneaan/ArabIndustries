@@ -26,22 +26,26 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-20 md:mt-0">
-      <div className="sm:col-span-1 sm:col-start-1 sm:col-end-2">
-        <LineChart />
-      </div>
-      <div className="sm:col-span-1 sm:col-start-2 sm:col-end-3">
-        <PieChartComponent />
-      </div>
-
-      <div className="sm:col-span-1 sm:col-start-1 sm:col-end-2">
-        <Table />
-        <Pagination totalPages={10} onPageChange={handlePageChange} />
-      </div>
-      <div className="sm:col-span-1 sm:col-start-2 sm:col-end-3">
-        <UserProfile />
+    <div className="container mx-auto p-4">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+        <div className="md:col-start-1 md:col-span-4">
+          <LineChart />
+        </div>
+        <div className="md:col-end-7 md:col-span-2">
+          <PieChartComponent />
+        </div>
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+        <div className="md:col-span-3">
+          <Table />
+          <Pagination totalPages={10} onPageChange={handlePageChange} />
+        </div>
+
+        <div className="md:mt-0 mt-4">
+          <UserProfile />
+        </div>
+      </div>
     </div>
   );
 };
